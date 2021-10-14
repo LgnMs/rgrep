@@ -10,7 +10,7 @@ $ rgrep Hello a.txt
 55: Hello world. This is an exmaple text
 ```
 
-## 思考
+## 实现过程
 
 1.先梳理整个整个项目的流程
 2.定义项目的接口
