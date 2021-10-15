@@ -1,4 +1,4 @@
-use std::{path::Path, path::PathBuf, str::FromStr};
+use std::{path::Path, path::PathBuf};
 use regex::Regex;
 use anyhow::*;
 use colored::Colorize;
@@ -6,7 +6,7 @@ use clap::{App, Arg};
 use std::fs;
 use globset::{Glob, GlobMatcher};
 
-trait Rgrep<T> {
+trait Rgrep {
     fn search(&mut self, str: &str) -> &Self;
     fn read(&mut self) -> &mut Self;
     fn print_result(&self);
@@ -30,7 +30,7 @@ impl FileGrep {
     }
 }
 
-impl Rgrep<FileGrep> for FileGrep {
+impl Rgrep for FileGrep {
     fn search(&mut self, str: &str) -> &Self {
         let mut result = Vec::new();
 
@@ -62,13 +62,6 @@ impl Rgrep<FileGrep> for FileGrep {
         let content = fs::read_to_string(self.path.clone()).unwrap();
         self.value = content;
         self
-    }
-}
-
-impl FromStr for FileGrep {
-    type Err = Error;
-    fn from_str(s: &str) -> Result<Self, Self::Err> {
-        Ok(FileGrep { value: s.into(), ..Default::default() })
     }
 }
 
