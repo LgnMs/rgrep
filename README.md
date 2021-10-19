@@ -6,7 +6,7 @@
 ## 示例
 
 ```s
-$ rgrep Hello a.txt
+$ rgrep “Hello” “a.txt”
 55: Hello world. This is an exmaple text
 ```
 
@@ -19,3 +19,7 @@ $ rgrep Hello a.txt
 3.测试接口是否稳定或者逻辑是否有问题
 
 4.实现接口功能
+
+ ![image]
+
+ [image]: /流程图.png
